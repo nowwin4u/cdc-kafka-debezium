@@ -65,5 +65,6 @@ $ docker run -it --name watcher --rm --link zookeeper:zookeeper --link kafka:kaf
 ### Clean up
 $ docker stop mysqlterm watcher connect mysql kafka zookeeper
 
-
+## Result
+Modifying any record in mysql would trigger a change event that would hold previous and current state of the record. The change events can be monitoried and consumed from Kafka topic for further processing. KStream application can be used to consume and transform change events.
 
